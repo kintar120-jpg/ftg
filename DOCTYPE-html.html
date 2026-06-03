@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fighter Gym Perú</title>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<style>
+:root {--primary-color:#e63946;--secondary-color:#ffd700;--dark-bg:#1a1a1a;--black:#000000;--white:#ffffff;--green-accent:#00e676;--pink-accent:#ff69b4}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Roboto',sans-serif;color:var(--white);background-color:var(--black);line-height:1.6}
+h1,h2,h3{font-family:'Oswald',sans-serif;text-transform:uppercase}
+a{text-decoration:none;color:inherit}
+.btn{display:inline-block;padding:12px 30px;border:none;border-radius:5px;font-weight:bold;text-transform:uppercase;cursor:pointer;transition:0.3s;font-family:'Oswald',sans-serif}
+.btn-primary{background-color:var(--primary-color);color:var(--white)}
+.btn-primary:hover{background-color:#c1121f;transform:translateY(-2px)}
+.btn-whatsapp{background-color:#25d366;color:#fff}
+.btn-whatsapp:hover{background-color:#128c7e;transform:translateY(-2px)}
+header{background-color:rgba(0,0,0,0.95);padding:1rem 5%;position:fixed;width:100%;top:0;z-index:1000;display:flex;justify-content:space-between;align-items:center;border-bottom:2px solid var(--primary-color)}
+.logo{font-size:1.5rem;font-weight:bold;color:var(--white)}
+.logo span{color:var(--primary-color)}
+nav ul{display:flex;gap:20px}
+.hero{height:100vh;background:linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url('https://images.unsplash.com/photo-1599058945522-28d584b6f0ff');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;text-align:center;padding:0 20px}
+.hero-content h1{font-size:3.5rem;margin-bottom:10px;line-height:1.1}
+.hero-content p{font-size:1.2rem;margin-bottom:30px;color:#ddd}
+.section{padding:80px 5%}
+.section-title{text-align:center;font-size:2.5rem;margin-bottom:50px}
+.section-title span{border-bottom:3px solid var(--primary-color)}
+.servicios-grid,.precios-grid,.tienda-grid,.testimonios-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:30px}
+.servicio-card,.precio-card,.product-card,.testimonial-card{background-color:var(--dark-bg);padding:30px;text-align:center;border-radius:10px;transition:0.3s;border:1px solid #333}
+.servicio-card:hover,.precio-card:hover,.product-card:hover{transform:translateY(-10px);border-color:var(--primary-color)}
+.servicio-card i{font-size:2.5rem;margin-bottom:15px}
+.servicio-card.fight i,.precio-card.popular{border-color:var(--primary-color)}
+.servicio-card.functional i{color:var(--green-accent)}
+.servicio-card.mujer i{color:var(--pink-accent)}
+.servicio-card.military i{color:#ff9800}
+.servicio-card.rehab i{color:#00bcd4}
+.precio-card{padding:40px 30px}
+.precio-card.popular::before{content:'Más Popular';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--primary-color);color:#fff;padding:5px 20px;border-radius:20px;font-size:0.8rem}
+.precio-card .precio{font-size:3rem;font-weight:bold;color:var(--secondary-color)}
+.precio-card .precio span{font-size:1.5rem;color:#888}
+.precio-card ul{text-align:left;margin:20px 0}
+.precio-card li{margin:10px 0;color:#ddd}
+.precio-card li i{color:var(--green-accent);margin-right:10px}
+.comunidad{background:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url('https://images.unsplash.com/photo-1526506118085-60ce8714f8c5');background-size:cover;background-attachment:fixed}
+.testimonial-card{background:rgba(255,255,255,0.1);backdrop-filter:blur(10px)}
+.testimonial-card .estrellas{color:var(--secondary-color);font-size:1.2rem;margin-bottom:15px}
+.testimonial-card p{font-style:italic;margin-bottom:20px}
+.testimonial-card .autor{font-weight:bold;color:var(--primary-color)}
+.reto-box{background:var(--primary-color);max-width:800px;margin:60px auto 0;padding:40px;border-radius:20px}
+.product-card{position:relative;overflow:hidden}
+.product-card .badge{position:absolute;top:10px;right:10px;background:var(--primary-color);color:#fff;padding:5px 10px;border-radius:5px;font-size:0.7rem;font-weight:bold}
+.product-img{width:100%;height:200px;object-fit:cover}
+.product-info{padding:20px}
+.product-info h3{font-size:1.1rem;margin-bottom:10px}
+.product-info p{color:#aaa;font-size:0.9rem;margin-bottom:10px}
+.price{font-size:1.3rem;color:var(--secondary-color);font-weight:bold;display:block;margin-bottom:15px}
+.filtros{display:flex;justify-content:center;gap:15px;margin-bottom:40px;flex-wrap:wrap}
+.filtro-btn{padding:10px 25px;border:2px solid var(--primary-color);background:transparent;color:var(--white);border-radius:30px;cursor:pointer;font-weight:bold;transition:0.3s}
+.filtro-btn.active,.filtro-btn:hover{background:var(--primary-color)}
+footer{background-color:#111;padding:40px 5%;text-align:center;border-top:1px solid #333}
+.social-icons a{font-size:1.5rem;margin:0 15px;color:#888}
+.whatsapp-float{position:fixed;bottom:20px;right:20px;background-color:#25d366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;justify-content:center;align-items:center;font-size:2rem;z-index:2000;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(37,211,102,0.7)}70%{box-shadow:0 0 0 15px rgba(37,211,102,0)}100%{box-shadow:0 0 0 0 rgba(37,211,102,0)}}
+@media (max-width:768px){.hero-content h1{font-size:2.5rem}nav{display:none}.section{padding:50px 5%}}
+</style>
+</head>
+<body>
+<header><div class="logo">FIGHTER <span>GYM</span></div><nav><ul><li><a href="#servicios">Disciplinas</a></li><li><a href="#precios">Planes</a></li><li><a href="#comunidad">Comunidad</a></li><li><a href="#tienda">Tienda</a></li></ul></nav><a href="#precios" class="btn btn-primary" style="padding:8px 20px;font-size:0.9rem">Unirse</a></header>
+<section class="hero"><div class="hero-content"><h1>Domina el Ring.<br>Transforma tu Vida.</h1><p>El centro de entrenamiento más exigente de Lima.</p><div style="margin-top:20px"><a href="#precios" class="btn btn-primary"><i class="fas fa-bolt"></i> Comienza Ahora</a> <a href="https://wa.me/51941250768?text=Hola%20Fighter%20Gym" target="_blank" class="btn btn-whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</a></div></div></section>
+<section id="servicios" class="section" style="background-color:var(--black)"><h2 class="section-title"><span>Nuestras Disciplinas</span></h2><div class="servicios-grid"><div class="servicio-card fight"><i class="fas fa-hand-rock"></i><h3>MMA</h3><p>Artes Marciales Mixtas.</p></div><div class="servicio-card fight"><i class="fas fa-boxing-glove"></i><h3>Boxeo</h3><p>Ciencia de los puños.</p></div><div class="servicio-card fight"><i class="fas fa-khanda"></i><h3>Muay Thai</h3><p>Arte de las 8 extremidades.</p></div><div class="servicio-card mujer"><i class="fas fa-shield-alt"></i><h3>Defensa Personal</h3><p>Protección para mujeres.</p></div><div class="servicio-card functional"><i class="fas fa-dumbbell"></i><h3>Entrenamiento Híbrido</h3><p>Fuerza y movilidad.</p></div><div class="servicio-card functional"><i class="fas fa-bolt"></i><h3>Funcional</h3><p>Potencia real.</p></div><div class="servicio-card military"><i class="fas fa-medal"></i><h3>Militar</h3><p>Bootcamp.</p></div><div class="servicio-card rehab"><i class="fas fa-user-nurse"></i><h3>Rehabilitación</h3><p>Recuperación.</p></div></div></section>
+  <section id="precios" class="section" style="background-color:var(--black)"><h2 class="section-title"><span>Elige tu Plan</span></h2><div class="precios-grid"><div class="precio-card"><h3>Básico</h3><div class="precio">S/ 199<span>/mes</span></div><ul><li><i class="fas fa-check"></i> Sala de pesas</li><li><i class="fas fa-check"></i> 3 días/semana</li><li><i class="fas fa-check"></i> Horario limitado</li><li><i class="fas fa-times" style="color:#666"></i> Clases grupales</li></ul><a href="https://wa.me/51941250768?text=Quiero%20Plan%20Básico" target="_blank" class="btn btn-primary" style="width:100%">Elegir Plan</a></div><div class="precio-card popular"><h3>FIGHTER PRO</h3><div class="precio">S/ 349<span>/mes</span></div><ul><li><i class="fas fa-check"></i> Acceso ilimitado 24/7</li><li><i class="fas fa-check"></i> Todas las clases</li><li><i class="fas fa-check"></i> MMA, Boxeo, Muay Thai</li><li><i class="fas fa-check"></i> Coach incluido</li></ul><a href="https://wa.me/51941250768?text=Quiero%20Plan%20Fighter%20Pro" target="_blank" class="btn btn-primary" style="width:100%">Elegir Plan</a></div><div class="precio-card"><h3>Personal</h3><div class="precio">S/ 200<span>/mes</span></div><ul><li><i class="fas fa-check"></i> Coach 1 a 1</li><li><i class="fas fa-check"></i> Plan personalizado</li><li><i class="fas fa-check"></i> Seguimiento total</li><li><i class="fas fa-check"></i> Dieta included</li></ul><a href="https://wa.me/51941250768?text=Quiero%20Plan%20Personal" target="_blank" class="btn btn-primary" style="width:100%">Elegir Plan</a></div></div></section>
+<section id="comunidad" class="section comunidad"><h2 class="section-title"><span>Nuestra Comunidad</span></h2><div class="testimonios-grid" style="max-width:1200px;margin:0 auto"><div class="testimonial-card"><div class="estrellas">★★★★★</div><p>"Llegué con 30kg de más y hoy doy sparring. El gym cambió mi vida."</p><div class="autor">- Carlos M.</div></div><div class="testimonial-card"><div class="estrellas">★★★★★</div><p>"El mejor ambiente. Ya gané 2 títulos regionales."</p><div class="autor">- Juan Pérez</div></div><div class="testimonial-card"><div class="estrellas">★★★★★</div><p>"Ahora estoy más fuerte que antes. Coaches muy profesionales."</p><div class="autor">- María Chen</div></div></div><div class="reto-box"><h3>🔥 RETO FIGHTER 30 DÍAS</h3><ul><li><i class="fas fa-check"></i> Rutina diaria</li><li><i class="fas fa-check"></i> Desafía tus límites</li><li><i class="fas fa-check"></i> Premio al ganador</li></ul><br><a href="https://wa.me/51941250768?text=Quiero%20inscribirme%20Reto%20Fighter" target="_blank" class="btn btn-primary" style="background:#fff;color:var(--primary-color)">Únete al Reto</a></div></section>
+<section id="tienda" class="section" style="background-color:#121212"><h2 class="section-title"><span>Tienda Fighter Gym</span></h2><div class="filtros"><button class="filtro-btn active" onclick="filterProducts('todos')">Todo</button><button class="filtro-btn" onclick="filterProducts('ropa')">Ropa</button><button class="filtro-btn" onclick="filterProducts('suplementos')">Suplementos</button><button class="filtro-btn" onclick="filterProducts('accesorios')">Accesorios</button></div><div class="tienda-grid"><div class="product-card" data-category="ropa"><span class="badge">Más Vendido</span><img src="https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=500" class="product-img"><div class="product-info"><h3>Polera Fighter</h3><p>Algodón premium</p><span class="price">S/ 59.90</span><a href="https://wa.me/51941250768?text=Quiero%20Polera%20Fighter" target="_blank" class="btn btn-whatsapp" style="width:100%"><i class="fab fa-whatsapp"></i> Comprar</a></div></div><div class="product-card" data-category="ropa"><img src="https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=500" class="product-img"><div class="product-info"><h3>Shorts Deportivo</h3><p>Licra breathable</p><span class="price">S/ 79.90</span><a href="https://wa.me/51941250768?text=Quiero%20Shorts" target="_blank" class="btn btn-whatsapp" style="width:100%"><i class="fab fa-whatsapp"></i> Comprar</a></div></div><div class="product-card" data-category="ropa"><img src="https://images.unsplash.com/photo-1583454110551-21f2fa2afe61?w=500" class="product-img"><div class="product-info"><h3>Guantes Boxeo Pro</h3><p>Cuero sintético</p><span class="price">S/ 149.00</span><a href="https://wa.me/51941250768?text=Quiero%20Guantes" target="_blank" class="btn btn-whatsapp" style="width:100%"><i class="fab fa-whatsapp"></i> Comprar</a></div></div><div class="product-card" data-category="suplementos"><span class="badge">Oferta</span><img src="https://images.unsplash.com/photo-1593095948071-474c5cc2989d?w=500" class="product-img"><div class="product-info"><h3>Proteína Whey</h3><p>2lbs - Sabores</p><span class="price">S/ 280.00</span><a href="https://wa.me/51941250768?text=Quiero
